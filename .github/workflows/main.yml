@@ -19,6 +19,7 @@ jobs:
         runtime: 'nodejs18'
         memory: '1024'
         entrypoint: 'index.handler'
+        environment: ''
         source: './'
         exclude: 'src/'
         description: 'деплой из гитхаба image-canvas2'
