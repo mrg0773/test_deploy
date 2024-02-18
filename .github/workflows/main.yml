@@ -2,7 +2,7 @@ name: image-canvas Push and Deploy Serverless function js deploy
 on:
   push:
     paths:
-      - 'backend_modules/image_canvas/**'
+      - '/**'
   workflow_dispatch:
 jobs:
   deploy:
@@ -19,7 +19,7 @@ jobs:
         runtime: 'nodejs18'
         memory: '1024'
         entrypoint: 'index.handler'
-        source: './backend_modules/image_canvas'
+        source: './'
         exclude: 'src/'
         description: 'деплой из гитхаба image-canvas2'
         execution_timeout: 600
