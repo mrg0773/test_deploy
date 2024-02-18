@@ -1,0 +1,26 @@
+name: image-canvas Push and Deploy Serverless function js deploy 
+on:
+  push:
+    paths:
+      - 'backend_modules/image_canvas/**'
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: goodsmileduck/yandex-serverless-action@v2
+      with:
+        token: ${{ secrets.TOKEN }}
+        bucket: ${{ secrets.BUCKET }}
+        accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+        secretAccessKey: ${{ secrets.SECRET_ACCESS_KEY }}
+        function_id: 'd4esit5rdtklvts0foag'
+        runtime: 'nodejs18'
+        memory: '1024'
+        entrypoint: 'index.handler'
+        source: './backend_modules/image_canvas'
+        exclude: 'src/'
+        description: 'деплой из гитхаба image-canvas2'
+        execution_timeout: 600
+        
